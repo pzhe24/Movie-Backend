@@ -27,35 +27,35 @@ public class MovieController {
     //retrieve all MOVIES
     @GetMapping("/movies")
     public ResponseEntity getMovies(){
-        var customizedResponse = new CustomizedResponse("A list of all movies", service.getMovies());
+        CustomizedResponse customizedResponse = new CustomizedResponse("A list of all movies", service.getMovies());
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
 
     //retrieve all TV SHOWS
     @GetMapping("/tv")
     public ResponseEntity getTV(){
-        var customizedResponse = new CustomizedResponse("A list of all tv shows", service.getTV());
+        CustomizedResponse customizedResponse = new CustomizedResponse("A list of all tv shows", service.getTV());
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
 
     //retrieve movie/tv show that has a certain title
     @GetMapping("/videos")
     public ResponseEntity getByTitle(@RequestParam(value="title") String title){
-        var customizedResponse = new CustomizedResponse("Movie or tv show with this certain title: "+ title, service.getByTitle(title));
+        CustomizedResponse customizedResponse = new CustomizedResponse("Movie or tv show with this certain title: "+ title, service.getByTitle(title));
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
 
     //retrieve all featured movies
     @GetMapping("/movies/isFeatured")
     public ResponseEntity getFeaturedMovies(@RequestParam(value="isFeatured") String feature){
-        var customizedResponse = new CustomizedResponse("List of featured Movies", service.getFeaturedMovies(feature));
+        CustomizedResponse customizedResponse = new CustomizedResponse("List of featured Movies", service.getFeaturedMovies(feature));
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
 
     //retrieve all featured tv shows
     @GetMapping("/tv/isFeatured")
     public ResponseEntity getFeaturedTV(@RequestParam(value="isFeatured") String feature){
-        var customizedResponse = new CustomizedResponse("List of featured TV shows", service.getFeaturedTV(feature));
+        CustomizedResponse customizedResponse = new CustomizedResponse("List of featured TV shows", service.getFeaturedTV(feature));
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
 

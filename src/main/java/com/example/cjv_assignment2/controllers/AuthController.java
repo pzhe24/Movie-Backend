@@ -29,12 +29,12 @@ public class AuthController {
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
-            var response = new CustomizedResponse("User Logged in Successfully:  Welcome "+ user.getUsername() , null);
+            CustomizedResponse response = new CustomizedResponse("User Logged in Successfully:  Welcome "+ user.getUsername() , null);
 
             return new ResponseEntity(response, HttpStatus.OK);
         }
         catch(BadCredentialsException e) {
-            var response = new CustomizedResponse("Incorrect Credentials", null);
+            CustomizedResponse response = new CustomizedResponse("Incorrect Credentials", null);
             return new ResponseEntity(response, HttpStatus.UNAUTHORIZED);
         }
     }
