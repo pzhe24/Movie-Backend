@@ -77,34 +77,34 @@ public class MovieService {
             throw new Exception("Movie with id " + id + " Does not Exist");
         }
         //check if title has a value
-        if(!updatedMovie.getTitle().isBlank()){
+        if(updatedMovie.getTitle() != null){
             movie.get().setTitle(updatedMovie.getTitle());
         }
-        if(!updatedMovie.getYear().isBlank()){
+        if(updatedMovie.getYear()!= null){
             movie.get().setYear(updatedMovie.getYear());
         }
-        if(!updatedMovie.getDescription().isBlank()){
+        if(updatedMovie.getDescription()!= null){
             movie.get().setDescription(updatedMovie.getDescription());
         }
-        if(!updatedMovie.getGenres().isBlank()){
+        if(updatedMovie.getGenres()!= null){
             movie.get().setGenres(updatedMovie.getGenres());
         }
-        if(!updatedMovie.getRuntime().isBlank()){
+        if(updatedMovie.getRuntime()!= null){
             movie.get().setRuntime(updatedMovie.getRuntime());
         }
-        if(!updatedMovie.getPoster().isBlank()){
+        if(updatedMovie.getPoster()!= null){
             movie.get().setPoster(updatedMovie.getPoster());
         }
-        if(!updatedMovie.getRentPrice().isBlank()){
+        if(updatedMovie.getRentPrice()!= null){
             movie.get().setRentPrice(updatedMovie.getRentPrice());
         }
-        if(!updatedMovie.getBuyPrice().isBlank()){
+        if(updatedMovie.getBuyPrice()!= null){
             movie.get().setBuyPrice(updatedMovie.getBuyPrice());
         }
-        if(!updatedMovie.getIsFeatured().isBlank()){
+        if(updatedMovie.getIsFeatured()!= null){
             movie.get().setIsFeatured(updatedMovie.getIsFeatured());
         }
-        if(!updatedMovie.getType().isBlank()){
+        if(updatedMovie.getType()!= null){
             movie.get().setType(updatedMovie.getType());
         }
         Movie editedMovie = repository.save(movie.get());
