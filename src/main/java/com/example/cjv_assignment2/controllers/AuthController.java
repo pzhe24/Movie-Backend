@@ -10,12 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
-
+@CrossOrigin(origins = {"http://localhost:3000", "https://cjv-a1.herokuapp.com"})
 @RestController
 public class AuthController {
 
@@ -29,11 +30,11 @@ public class AuthController {
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
-            CustomizedResponse response = new CustomizedResponse("User Logged in Successfully:  Welcome "+ user.getUsername() , null);
+            CustomizedResponse response = new CustomizedResponse("Welcome "+ user.getUsername() , Collections.singletonList(user.getId()));
 
             return new ResponseEntity(response, HttpStatus.OK);
         }
-        catch(BadCredentialsException e) {
+        catch(Exception e) {
             CustomizedResponse response = new CustomizedResponse("Incorrect Credentials", null);
             return new ResponseEntity(response, HttpStatus.UNAUTHORIZED);
         }
