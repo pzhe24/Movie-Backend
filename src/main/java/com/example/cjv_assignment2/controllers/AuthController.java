@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
-@CrossOrigin(origins = {"http://localhost:3000", "https://cjv-a1.herokuapp.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://cjv-final-movie.herokuapp.com"})
 @RestController
 public class AuthController {
 
@@ -30,7 +30,7 @@ public class AuthController {
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
-            CustomizedResponse response = new CustomizedResponse("Welcome "+ user.getUsername() , Collections.singletonList(user.getId()));
+            CustomizedResponse response = new CustomizedResponse("Welcome "+ user.getUsername() , null);
 
             return new ResponseEntity(response, HttpStatus.OK);
         }
