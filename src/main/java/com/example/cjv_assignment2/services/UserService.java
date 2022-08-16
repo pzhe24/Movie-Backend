@@ -54,16 +54,16 @@ public class UserService implements UserDetailsService {
 
 //        System.out.println(foundUsername.getUsername());
 
-        if(newUser.getFirstName() == null){
+        if(newUser.getFirstName() == ""){
             throw new Exception("Missing First Name");
         }
-        if(newUser.getLastName() == null){
+        if(newUser.getLastName() == ""){
             throw new Exception("Missing Last Name");
         }
-        if(newUser.getEmail() == null){
+        if(newUser.getEmail() == ""){
             throw new Exception("Missing Email");
         }
-        if(newUser.getPassword() == null){
+        if(newUser.getPassword() == ""){
             throw new Exception("Missing Password");
         }
         if(foundUsername != null){

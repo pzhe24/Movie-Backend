@@ -8,7 +8,7 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
-@CrossOrigin(origins = {"http://localhost:3000", "https://cjv-final-movie.herokuapp.com"})
+@CrossOrigin
 @RestController
 public class UserController {
 
